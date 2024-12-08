@@ -3,7 +3,6 @@ import VehicleCard from "./VehicleCard.jsx";
 
 
 
-
 const VehicleCardList = ({array, imageURL}) => {
     return (
         <>

@@ -95,8 +95,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.catch(error => console.log("Error: ", error))
 			},
-			getSinglePlanet: () => {
-				fetch(`${baseURL}/planet/${planetId}`)
+			getSinglePlanet: planetId => {
+				fetch(`${baseURL}/planets/${planetId}`)
 				.then(response => {
 					if(!response.ok) {
 						throw Error("Error retrieving info.")
@@ -109,7 +109,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("Error: ", error))
 			},
 			
-			getSingleVehicle: () => {}
+			getSingleVehicle: () => {
+				fetch(`${baseURL}/vehicles/${vehicleId}`)
+				.then(response => {
+					if(!response.ok) {
+						throw Error("Error retrieving info.")
+					}
+					return response.json();
+				})
+				.then(data => {
+					setStore({singleVehicle: data.result.properties})
+				})
+				.catch(error => console.log("Error: ", error))
+			}
 		}
 	};
 };

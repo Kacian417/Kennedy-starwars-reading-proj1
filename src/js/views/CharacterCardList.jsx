@@ -1,6 +1,5 @@
 import React from "react";
 import CharacterCard from "./CharacterCard.jsx";
-import PlanetCard from "./PlanetCard.jsx";
 
 
 

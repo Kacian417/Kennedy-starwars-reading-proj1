@@ -3,7 +3,6 @@ import PlanetCard from "./PlanetCard.jsx";
 
 
 
-
 const PlanetCardList = ({array, imageURL}) => {
     return (
         <>
