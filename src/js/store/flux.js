@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			allVehicles: [],
 			singleCharacter: [],
 			singlePlanet: [],
-			singleVehicle: []
+			singleVehicle: [],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -121,6 +122,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({singleVehicle: data.result.properties})
 				})
 				.catch(error => console.log("Error: ", error))
+			},
+
+			addFavorites: (favItem) => {
+				const store = getStore();
+				store.favorites.push(favItem);
+				setStore(store)
+			},
+
+			deleteFavorites: (deleteFavIndex) => {
+				const store = getStore();
+				const updatedFavorites = store.favorites.filter((item, index) => index !== deleteFavIndex);
+				setStore({
+					favorites: updatedFavorites
+				});
 			}
 		}
 	};
