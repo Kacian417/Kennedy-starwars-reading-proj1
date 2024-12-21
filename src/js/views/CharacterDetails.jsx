@@ -38,7 +38,7 @@ const CharacterDetails = () => {
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </>
     );
 }

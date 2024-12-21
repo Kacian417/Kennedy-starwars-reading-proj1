@@ -8,7 +8,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			allVehicles: [],
 			singleCharacter: [],
 			singlePlanet: [],
-			singleVehicle: []
+			singleVehicle: [],
+			addFavorites: [],
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -109,7 +111,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("Error: ", error))
 			},
 			
-			getSingleVehicle: () => {
+			getSingleVehicle: vehicleId => {
 				fetch(`${baseURL}/vehicles/${vehicleId}`)
 				.then(response => {
 					if(!response.ok) {
@@ -121,7 +123,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({singleVehicle: data.result.properties})
 				})
 				.catch(error => console.log("Error: ", error))
-			}
+			},
+
+			addFavorite: id => {
+				if (!favorite.includes(id)) setFavorite(favorite.concat(id));
+				console.log(id);
+			  },
+			
+			// this one does the exact opposite, it removes the favorite recipe id's
+			removeFavorite: id => {
+				let index = favorite.indexOf(id);
+				console.log(index);
+				let temp = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
+				setFavorite(temp);
+			  },
+			
+			// this variable holds the list of favorite recipes, we will use it to render all the fav ecipes
+			findfavorite: starwarsItem.filter(starwarsItem => favorite.includes(character.id, vehicle.id, planet.id)),
+			
+			// filtered list of recipes
+			filtered: id.filter(starwarsItem => {
+				if (searchTerm === "") {
+				  return starwarsItem;
+				} else if (starwarsItem.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+				  return starwarsItem;
+				}
+			  }),
+
+			
 		}
 	};
 };
