@@ -112,6 +112,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			getSingleVehicle: vehicleId => {
+			getSingleVehicle: vehicleId => {
 				fetch(`${baseURL}/vehicles/${vehicleId}`)
 				.then(response => {
 					if(!response.ok) {
