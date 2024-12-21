@@ -110,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("Error: ", error))
 			},
 			
-			getSingleVehicle: () => {
+			getSingleVehicle: vehicleId => {
 				fetch(`${baseURL}/vehicles/${vehicleId}`)
 				.then(response => {
 					if(!response.ok) {

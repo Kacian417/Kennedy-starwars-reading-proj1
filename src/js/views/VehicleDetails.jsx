@@ -30,7 +30,7 @@ const VehicleDetails = () => {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title">{store.singleVehicle.name}</h5>
-                            <p className="card-text">Model:{store.singleVehicle.model}</p>
+                            <p className="card-text">Model: {store.singleVehicle.model}</p>
                             <p className="card-text">Passengers: {store.singleVehicle.passengers}</p>
                             <p className="card-text">Vehicle Class: {store.singleVehicle.vehicle_class}</p>
                             <p className="card-text">Crew: {store.singleVehicle.crew}</p>
